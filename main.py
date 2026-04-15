@@ -1,6 +1,6 @@
-def main():
-    print("Hello from erpai!")
+from fastapi import FastAPI
+from app.api import chat
 
+app = FastAPI(title="LangGraph Agent API")
 
-if __name__ == "__main__":
-    main()
+app.include_router(chat.router)

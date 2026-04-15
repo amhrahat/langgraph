@@ -22,7 +22,9 @@ graph.add_edge("llm_node", END)
 react_graph = graph.compile()
 
 
-Image(react_graph.get_graph().draw_mermaid_png())
+png = react_graph.get_graph().draw_mermaid_png()
+with open("graph.png", "wb") as f:
+    f.write(png)
 
-response = react_graph.invoke({"messages": [HumanMessage(content="What is the latest news on AI?")]})
-print(response['messages'][-1].content)
+# response = react_graph.invoke({"messages": [HumanMessage(content="What time is it?")]})
+# print(response['messages'][-1].content)
